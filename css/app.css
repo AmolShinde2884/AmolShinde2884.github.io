@@ -1,0 +1,135 @@
+html{
+	font-family:  Calibri, Trebuchet, sans-serif;
+}
+
+body{
+    background-image:url('../img/back-white.png');
+}
+
+.header{
+	height: 30px;
+	padding: 5px;
+	border-bottom: 1px solid #E6E6E6;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.marker{
+	/*background-color: gray;
+	height: 150px; 
+	width:  200px;
+	opacity: 0.5;*/
+	width:  200px;
+	width:  100px;
+}
+
+.marker-point{
+	position:absolute;
+	left:45%; 
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid white;
+}
+
+/* Calendar mini */
+#calendar {
+    width: 350px;
+    margin: 0 auto;
+    font-size: 13px;
+}
+.fc-header-title h2 {
+    font-size: 13px;
+    white-space: normal !important;
+}
+.fc-view-month .fc-event, .fc-view-agendaWeek .fc-event {
+    font-size: 0;
+    overflow: hidden;
+    height: 2px;
+}
+.fc-view-agendaWeek .fc-event-vert {
+    font-size: 0;
+    overflow: hidden;
+    width: 2px !important;
+}
+.fc-agenda-axis {
+    /* width: 20px !important; */
+    font-size: 12px;
+}
+
+.fc-button-content {
+    padding: 0;
+}
+
+.fc-left h2{
+	font-size: 13px;
+}
+
+.fixed-action-btn ul i{
+	margin-top:3px;	
+}
+table tr th{
+	border: 1px solid gray;
+	text-align: center;
+	background: #0D3F81;
+	color: white;
+}
+
+
+
+.paging_simple_numbers .paginate_button{
+	padding-left: 5px;
+	padding-right: 5px;
+	border: 1px solid #E6E6E6;
+	background-color: #FFFFFF;
+	cursor: hand;
+	color: black;
+}
+
+
+.paging_simple_numbers .previous{
+	padding-right: 10px;
+	background-color: #f2f2f2;
+}
+
+.paging_simple_numbers .next{
+ 	padding-left: 10px;
+	background-color: #f2f2f2;
+}
+
+.paging_simple_numbers .current{
+ 	color: #848484;
+}
+
+.dataTables_info{
+	float:right;
+}
+.dataTables_length{
+	display: none;
+}
+
+#fileTable_filter input{
+	height: 20px;
+	width:300px;
+	float: right;
+	margin:0px 0px 8px 5px;
+	padding: 5px;
+	border: 1px solid #D8D8D8;
+	color: black;
+}
+
+#fileTable_filter label{
+	float:right;
+	color: black;
+	font-size: 16px;
+}
+
+#fileTable_wrapper table tr td{
+	border: 1px solid #E6E6E6; 
+}
+
+#fileTable_wrapper table tr th{
+	border: 1px solid #E6E6E6; 
+}
+	

@@ -1,1 +1,249 @@
-"Hellow World" 
+<html>
+<head>
+    <link rel='stylesheet' href='css/fullcalendar.min.css' />
+    <link rel="stylesheet" href="css/materialize.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/sweetalert.css" />
+    <link rel="stylesheet" href="css/icon.css" />
+    <link rel="stylesheet" href="css/materialize.timeline.css" />
+
+    <script src="js/angular.min.js"></script>
+    <!-- <script src="js/jquery-3.1.1.min.js"></script> -->
+    <script src="js/jquery-1.12.4.js"></script> 
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/materialize.min.js"></script>
+
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/appServices.js"></script>
+    
+    <script src='js/moment.min.js'></script>
+    <script src='js/AndroidJsCalls.js'></script>
+
+    <script src='js/fullcalendar.min.js'></script>
+    <script src="js/sweetalert.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    
+    <script src="js/appUtils.js"></script>
+    
+    <script type="text/javascript">
+	    
+    </script>	
+</head>
+<body id="rezumeAppBody" ng-app="rezumeApp" ng-controller="rezumeController">
+
+<nav style="height: 30px;">
+    <!-- <div class="nav-wrapper" style="height: 40px !important; ">
+        <a href="#!" class="brand-logo left">App</a>
+    </div> -->
+    <span style="float: right; color: white; position:absolute; right: 10px; top:-15px;">
+    	Welcome user, <a href="javascript:alert();">Logout</a>
+    </span>
+</nav>
+
+<nav >
+	<div class="nav-wrapper " style="float: left;" >
+      <div class="col s12" >
+        <a href="#!" class="breadcrumb" >App</a>
+        <a href="#!" class="breadcrumb" >{{screenName}}</a>
+      </div>
+    </div>
+    <div class="nav-wrapper" style="height: 40px !important; ">
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a class="dropdown-button" ng-click="showMainPage()" href="javascript:void(0);" data-activates='dropdown1'>Option 1</a></li>
+	        <li><a href="javascript:void(0);" ng-click="showFormPage()">Option 2</a></li>
+	        <li><a href="collapsible.html">Option 3</a></li>
+	    </ul>
+        
+    </div>
+</nav>
+
+ <!-- Container -->
+<div  style="padding-top:20px;">
+    <div class="row " style="width:100%;" id="container">
+
+        <!-- LOGIN START-->
+        <div class="card hoverable col s5 offset-s4  z-depth-3 " ng-show="screens.loginScreen" >
+
+            <div class="card-stacked ">
+            	<form name="appLoginForm" action=""  novalidate>
+	                <div class="card-content" style="">
+	                    <b>Login</b>
+	                </div>
+	                <div class="card-content">
+	                    <div class="row ">
+	                        <div class="input-field ">
+	                            <input id="login_name" ng-model="loginUser.userId" type="text" class="validate" maxlength="20" ng-minlength="10" ng-maxlength="20" required />
+	                            <label for="login_name">Login Id</label>
+	                        </div>
+	                    </div>
+	                    <div class="row">
+	                        <div class="input-field ">
+	                            <input id="login_password" ng-model="loginUser.password" type="password" class="validate" ng-minlength="6" ng-maxlength="10" required required />
+	                            <label for="login_password">Password</label>
+	                        </div>
+	                    </div>
+	                    <div class="row">
+	                    	<p>
+						      <input type="checkbox" id="test5" />
+						      <label for="test5">Keep me login.</label>
+						    </p>
+	                        <a class="btn waves-effect waves-light right" ng-click="validateUser()"  >Login
+	                            <i class="material-icons right" >send</i>
+	                        </a>
+	                    </div>
+	                </div>
+	            </form>    
+            </div>
+        </div>
+        <!-- LOGIN END-->
+
+        <!-- MAiN PAGE START-->
+        <div class="col s12" ng-show="screens.mainContent" >
+        	<div class="row">
+        		<!-- TIMELINE START -->
+        		<div class="col s8 ">
+        			<div class="col s12 card " style="padding: 10px;" >
+        				Todays Time-line
+        				<div ng-show="!rezEvents.length">No event to display</div>
+		        		<div class="timeline" ng-show="rezEvents.length">
+					      <!-- Event Start -->
+					      <div  class="timeline-event" ng-repeat="event in rezEvents">
+					        <div class="card timeline-content hoverable" style="min-height: 250px;">
+					           
+					          <div class="card-content">
+					            <span class="card-title grey-text text-darken-4">
+					            	{{event.title}}
+					            	
+					            	<!-- Action Buttons Start -->
+					            	<div class="fixed-action-btn horizontal" style="position: absolute; display: inline-block; right: 19px; ">
+									  <a class="btn-floating btn-large btn-flat" style="margin-top:5px;">
+									    <i class="material-icons " style="color: gray ;margin-top:10px;">more_vert</i>
+									  </a>
+									  	<ul>
+										  <li>
+										  	<a class="btn-floating red" >
+										  		<i class="material-icons "  >delete_forever</i>
+										  	</a>
+										  </li>
+										  <li>
+										  	<a class="btn-floating yellow darken-1">
+										  		<i class="material-icons " >edit</i>
+										  	</a>
+										  </li>
+										  <li>
+										  	<a class="btn-floating green tooltipped" data-position="top" data-delay="50" data-tooltip="Done">
+										  		<i class="material-icons " >done</i>
+										  	</a>
+										  </li>
+										</ul>
+									</div>
+					            	<!-- Action Button End -->
+					            	
+					            	<div class="chip">
+									    <a href="javascript:void(0);">View</a>
+									</div>	
+					            </span>
+					            <p>
+					            	<i class="material-icons">access_time</i><br/>
+					            	{{event.eventTime}}
+					            </p>
+					            <p>
+					            	<i class="material-icons">message</i><br/>
+					            	{{event.eventMessage}}
+					            </p>
+					          </div>
+					           
+					        </div>
+					        <div class="timeline-badge blue white-text"><i class="material-icons">event</i></div>
+					      </div>
+					      <!-- Event End -->
+					      
+					    </div>
+					</div>
+        		</div>
+        		
+        		
+				<!-- TIMELINE ENDS -->
+				
+	             <div class="col s4 right card  " style="padding: 20px;" >
+					<div id='calendar' ></div>
+					&nbsp;
+					<a style="right:30px;position:absolute; bottom: -30px; " class="btn-floating btn-large waves-effect waves-light right hoverable" ng-click="addNewBlog()">
+				        <i class="material-icons">add</i>
+				    </a>
+				</div>
+        	</div>
+            
+        </div>
+        <!-- MAiN PAGE END -->
+
+
+		<!--  -->
+		
+		<div class="col s12 " ng-show="screens.pageForm" >
+		
+			<div class="row">
+				<div class="col s12 card" style="padding: 10px;">
+					Upload Files 
+					<a class="btn-floating btn-large right" style="" href='javascript:$("#multiFileUpload").click();'>
+					    <i class="material-icons">create_new_folder</i>
+					</a>
+					<br/>
+					<b>Files to Upload</b>
+					<br/><br/>
+					<table id="fileTable" style="width:100%; margin-top: 10px;">
+						<thead>
+							<tr>
+								<th style="background: #3f4a5b; " >
+									Sr#
+								</th>
+								<th style="background: #3f4a5b; " >
+									File Name
+								</th>
+								<th style="background: #3f4a5b; " >
+									Size
+								</th>
+								<th style="background: #3f4a5b; " >
+									Status
+								</th>
+								<th style="background: #3f4a5b; " >
+									Action
+								</th>
+							</tr>
+						</thead>
+						<tbody>	
+							<tr ng-repeat="file in selectedFiles track by $index">
+								<td >
+									{{$index}}
+								</td>
+								<td >
+									{{file.fileName}}
+								</td>
+								<td >
+									{{file.size}}
+								</td>
+								<td >
+									{{file.status}}
+								</td>
+								<td >
+									{{file.action}}
+								</td>
+								
+							</tr>
+						</tbody>	
+					</table>
+							 
+				</div>
+			</div>
+			
+			<input type="file" id="multiFileUpload" class="btn-floating" onchange="filesSelected();" style="display: none;" multiple />
+		</div>
+		<!--  -->        
+
+    </div>
+</div>
+
+
+
+</body>
+</html>
